@@ -31,3 +31,19 @@
 
 
 /* #region minor fixes */
+
+hr {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+body {
+    user-select: none;
+}
+
+.card-header>.tag {
+    border-radius: 0px 0px 0px 3px;
+}
+
+
+/* #endregion */
