@@ -1,0 +1,48 @@
+[v-cloak] {
+    display: none;
+}
+
+@font-face {
+    font-family: Hacked;
+    src: url(https://hackedfont.com/HACKED.ttf);
+}
+
+.hacked {
+    font-family: Hacked;
+}
+
+.menu {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    transform-origin: top;
+    opacity: 0;
+    z-index: 15;
+    visibility: hidden;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-left: 10%;
+}
+
+
+/* #region minor fixes */
+
+hr {
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+body {
+    user-select: none;
+}
+
+.card-header>.tag {
+    border-radius: 0px 0px 0px 3px;
+}
+
+
+/* #endregion */
