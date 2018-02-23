@@ -12,20 +12,20 @@ const CleanPlugin = require('clean-webpack-plugin');
 
 // Paths of your project
 const paths = {
-    src: {
-    	root: path.join(__dirname, 'src/'),
-        images: 'img/',
-        scripts: 'js/',
-        styles: 'scss/',
-        fonts: 'fonts/'
-    },
-    dist: {
-    	root: path.join(__dirname, 'webroot/'),
-        images: 'img/',
-        scripts: 'js/',
-        styles: 'css/',
-        fonts: 'fonts/'
-    }
+	src: {
+		root: path.join(__dirname, 'src/'),
+		images: 'img/',
+		scripts: 'js/',
+		styles: 'scss/',
+		fonts: 'fonts/'
+	},
+	dist: {
+		root: path.join(__dirname, 'webroot/'),
+		images: 'img/',
+		scripts: 'js/',
+		styles: 'css/',
+		fonts: 'fonts/'
+	}
 };
 
 // Exclude these files from copying from the `src/` folder to the build folder
@@ -38,36 +38,36 @@ const excludeFolders = [
 
 // Environment varaibles that you can use in .html, .scss and .js. Useful if using a CDN.
 const environmentVariables = {
-    local: [
-        {
-            search: '{{envPath}}',
-            replace: ''
-        }
-    ],
-    dev: [
-        {
-            search: '{{envPath}}',
-            replace: ''
-        }
-    ],
-    qa: [
-        {
-            search: '{{envPath}}',
-            replace: 'https://qa.example.com'
-        }
-    ],
-    uat: [
-        {
-            search: '{{envPath}}',
-            replace: 'https://uat.example.com'
-        }
-    ],
-    prod: [
-        {
-            search: '{{envPath}}',
-            replace: 'https://example.com'
-        }
-    ]
+	local: [
+		{
+			search: '{{envPath}}',
+			replace: ''
+		}
+	],
+	dev: [
+		{
+			search: '{{envPath}}',
+			replace: ''
+		}
+	],
+	qa: [
+		{
+			search: '{{envPath}}',
+			replace: 'https://qa.example.com'
+		}
+	],
+	uat: [
+		{
+			search: '{{envPath}}',
+			replace: 'https://uat.example.com'
+		}
+	],
+	prod: [
+		{
+			search: '{{envPath}}',
+			replace: 'https://example.com'
+		}
+	]
 };
 
 // Style loaders. If you wanted to change to LESS you would change it here
@@ -167,7 +167,7 @@ let webpackConfig = {
 			{
 				test: /\.scss$/,
 				include: path.join(paths.src.root, paths.src.styles),
-                loader: ExtractTextPlugin.extract(styleLoaders.join('!'))
+				loader: ExtractTextPlugin.extract(styleLoaders.join('!'))
 			},
 			{
 				test: /\.jpe?g$|\.gif$|\.png$|\.svg$/,
@@ -213,10 +213,10 @@ let webpackConfig = {
 		]
 	},
 	postcss: function () {
-        return [precss, autoprefixer({browsers: ['last 3 versions']})];
-    },
+		return [precss, autoprefixer({ browsers: ['last 3 versions'] })];
+	},
 	plugins: [
-        new CleanPlugin(paths.dist.root),
+		new CleanPlugin(paths.dist.root),
 		new webpack.DefinePlugin({
 			'process.env': {
 				NODE_ENV: JSON.stringify(environment)
@@ -249,9 +249,9 @@ if (files.html.length) {
 // Copy files from root
 if (files.other.length) {
 	files.other.forEach(file => {
-		if (excludeFiles.indexOf(file) === -1) { 
+		if (excludeFiles.indexOf(file) === -1) {
 			webpackConfig.plugins.push(new CopyPlugin([
-				{context: paths.src.root, from: file, to: paths.dist.root}
+				{ context: paths.src.root, from: file, to: paths.dist.root }
 			]));
 		}
 	});
@@ -260,9 +260,9 @@ if (files.other.length) {
 // Copy folders
 if (files.folders.length) {
 	files.folders.forEach(file => {
-		if (excludeFolders.indexOf(file) === -1) { 
+		if (excludeFolders.indexOf(file) === -1) {
 			webpackConfig.plugins.push(new CopyPlugin([
-				{context: paths.src.root, from: path.join(file, '/**/*'), to: paths.dist.root}
+				{ context: paths.src.root, from: path.join(file, '/**/*'), to: paths.dist.root }
 			]));
 		}
 	});

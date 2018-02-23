@@ -1,17 +1,33 @@
-@import 'variables';
-
-body {
-	background: $BLACK;
-	border-radius: 5px;
-	content: "{{envPath}}";
+@import '~bulma/bulma';
+[v-cloak] {
+    display: none;
 }
 
-a {
-	-webkit-border-radius: 5px;
-	border-radius: 5px;
-	display: flex;
+@font-face {
+    font-family: Hacked;
+    src: url(https://hackedfont.com/HACKED.ttf);
 }
 
-:fullscreen a {
-    display: flex
+.hacked {
+    font-family: Hacked;
 }
+
+.menu {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    transform-origin: top;
+    opacity: 0;
+    z-index: 15;
+    visibility: hidden;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    margin-left: 10%;
+}
+
+
+/* #region minor fixes */
